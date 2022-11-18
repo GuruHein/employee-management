@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { blueGrey } from '@mui/material/colors';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Employees from './pages/Employees'
 import Layout from './components/Layout'
 
@@ -18,9 +19,13 @@ function App() {
   
   return (
     <ThemeProvider theme={theme}>
-      <Layout>
-        <Employees />
-      </Layout>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Employees />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }
